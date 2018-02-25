@@ -1,10 +1,12 @@
 language: node_js
 node_js:
  - "lts/*"
+addons:
+  firefox: latest
 before_install:
- - "cd speedway-web-administration-client"
+  - "cd speedway-web-administration-client"
 install:
- - "npm install"
+  - "npm install"
 script:
- - "ng build"
- - "ng test"
+  - "ng build"
+  - "ng test"
