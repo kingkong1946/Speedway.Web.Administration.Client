@@ -1,9 +1,9 @@
 language: node_js
 node_js:
  - "lts/*"
+before_install:
+ - "cd speedway-web-administration-client"
 install:
  - "npm install"
-before_script:
- - "cd speedway-web-administration-client"
 script:
  - "ng build"
