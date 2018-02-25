@@ -1,0 +1,22 @@
+language: node_js
+node_js:
+ - "lts/*"
+addons:
+  firefox: latest
+before_install:
+  - "cd speedway-web-administration-client"
+install:
+  - "npm install"
+before_script:
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+script:
+  - "ng build"
+  - "./node_modules/.bin/karma start --browsers Firefox --single-run"
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN  # Set in travis-ci.org dashboard, marked secure
+  keep-history: true
+  on:
+    branch: master
