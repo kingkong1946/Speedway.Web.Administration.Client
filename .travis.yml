@@ -7,6 +7,9 @@ before_install:
   - "cd speedway-web-administration-client"
 install:
   - "npm install"
+before_script:
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
 script:
   - "ng build"
-  - "ng test"
+  - "./node_modules/.bin/karma start --browsers Firefox --single-run"
