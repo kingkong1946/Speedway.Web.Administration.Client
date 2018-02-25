@@ -14,9 +14,6 @@ script:
   - "ng build"
   - "./node_modules/.bin/karma start --browsers Firefox --single-run"
 deploy:
-  provider: pages
-  skip-cleanup: true
-  github-token: $GITHUB_TOKEN  # Set in travis-ci.org dashboard, marked secure
-  keep-history: true
-  on:
-    branch: master
+  provider: firebase
+  token:
+    secure: $FIREBASE_TOKEN
